@@ -1,0 +1,11 @@
+{
+  "name": "request-x-ray",
+  "version": "1.0.0",
+  "description": "zendesk application",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
+}
