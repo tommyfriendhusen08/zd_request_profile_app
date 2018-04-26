@@ -1,5 +1,4 @@
 const BASE_URL = "http://localhost:3000/";
-const FULL_CONTACT_API_KEY = "mOEHe2wFoNepQnpPY9LCtqXdDcbfuuqP"
 
 requirejs([
     'app/handlebars_extensions',
