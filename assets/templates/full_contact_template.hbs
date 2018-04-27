@@ -1,0 +1,66 @@
+{{#if message}}
+
+{{else}}
+{{#if photo}}
+<div class='thumbnail'>{{{link_image photo}}}</div>
+{{/if}}
+
+<table>
+    <tr>
+        <td>Name:</td>
+        <td class="data">{{fullName}}</td>
+    </tr>
+    <tr>
+      {{#if ageRange}}
+        <td>Age Range:</td>
+        <td class="data">{{ageRange}}</td>
+      {{/if}}
+    </tr>
+    <tr>
+      {{#if gender}}
+        <td>Gender:</td>
+        <td class="data">{{gender}}</td>
+      {{/if}}
+    </tr>
+    <tr>
+      {{#if location}}
+        <td>Location:</td>
+        <td class="data">{{location}}</td>
+      {{/if}}
+    </tr>
+    {{#if organizationTitle}}
+    <tr>
+        <td>Organization:</td>
+        <td class="data">{{organization}}</td>
+    </tr>
+    {{/if}} {{#if organizationTitle}}
+    <tr>
+        <td>Title:</td>
+        <td class="data">{{organizationTitle}}</td>
+    </tr>
+    {{/if}}
+</table>
+<div>
+  {{#if facebook}}
+    <span class="social-link">
+      {{link_social facebook}}
+    </span> 
+  {{/if}} 
+  {{#if twitter}}
+    <span class="social-link">
+      {{link_social twitter}}
+    </span> 
+  {{/if}} 
+  {{#if linkedin}}
+    <span class="social-link">
+      {{link_social linkedin}}
+    </span> 
+  {{/if}} 
+  {{#if google}}
+    <span class="social-link">
+      {{link_social google}} 
+    </span> 
+  {{/if}}
+</div>
+<hr>
+{{/if}}

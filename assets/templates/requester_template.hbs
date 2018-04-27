@@ -1,0 +1,148 @@
+{{#if message}}
+<h4>{{message}}</h4>
+{{else}}
+<table>
+    <tr>
+        <td>IH Name:</td>
+        <td class="data">{{first_name}} {{last_name}}</td>
+    </tr>
+    <tr>
+        <td>IH Email:</td>
+        <td class="data">{{email}}</td>
+    </tr>
+    <tr>
+        <td>Role:</td>
+        <td class="data">{{role}}</td>
+    </tr>
+    <tr>
+        <td>Repeat Guest:</td>
+        <td class="data">{{repeat}}</td>
+    </tr>
+    <tr>
+        <td>Had Problems:</td>
+        <td class="data">{{had_problems}}</td>
+    </tr>
+    <tr>
+        <td>Caused Problems:</td>
+        <td class="data">{{caused_problems}}</td>
+    </tr>
+</table>
+{{#if notes}}
+<br>
+<h4 class="expand">+ User-Notes</h4>
+<div class="hidden">
+
+    <table>
+        {{#each notes}}
+        <tr>
+            <td>
+                {{this}}
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{/if}} {{#if reservations}}
+<br>
+<h4 class="expand">+ Reservations</h4>
+<div class='hidden'>
+    {{#each reservations}}
+    <div>
+        <table>
+            <tr>
+                <td>ID:</td>
+                <td>{{{link_reservation this}}}</td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>{{this.status}}</td>
+            </tr>
+            <tr>
+                <td>Stay Reason:</td>
+                <td>{{this.reason}}</td>
+            </tr>
+            <tr>
+                <td>Start Date:</td>
+                <td>{{this.start}}</td>
+            </tr>
+            <tr>
+                <td>End Date:</td>
+                <td>{{this.end}}</td>
+            </tr>
+        </table>
+        <div class='indent'>
+            <h5 class="expand">+ Notes</h5>
+            <ul class='hidden'>
+                {{#each this.notes}}
+                <li>
+                    {{this}}
+                </li>
+                {{/each}}
+            </ul>
+            <h5 class="expand">+ Services</h5>
+            <ul class='hidden'>
+                {{#each this.services}}
+                <li>
+                    {{this.id}}: {{this.name}} - {{this.date}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <hr> {{/each}}
+</div>
+{{/if}} {{#if units}}
+<h4 class="expand">+ Units</h4>
+<div class="hidden">
+    {{#each units}}
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td>{{{link_unit this}}}</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>{{this.unit_name}}</td>
+        </tr>
+        <tr>
+            <td>IH Start Date:</td>
+            <td>{{this.start_date}}</td>
+        </tr>
+        <tr>
+            <td>Booked Revenue:</td>
+            <td>${{this.booked_revenue}}</td>
+        </tr>
+        <tr>
+            <td>Paid Revenue:</td>
+            <td>${{this.actual_revenue}}</td>
+        </tr>
+    </table>
+    <div class='indent'>
+        <h5 class="expand">+ Upcoming-Reservations</h5>
+        <ul class='hidden'>
+            {{#each this.upcoming_reservations}}
+            <li>
+                {{{link_reservation this}}}: {{this.start_date}} - {{this.end_date}}
+            </li>
+            {{/each}}
+        </ul>
+        <h5 class="expand">+ Completed-Reservations</h5>
+        <ul class='hidden'>
+            {{#each this.completed_reservations}}
+            <li>
+                {{{link_reservation this}}}: {{this.start_date}} - {{this.end_date}}
+            </li>
+            {{/each}}
+        </ul>
+        <h5 class="expand">+ Future-Services</h5>
+        <ul class='hidden'>
+            {{#each this.future_work_orders}}
+            <li>
+                {{this.id}}: {{this.name}} - {{this.due_date}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <hr>{{/each}}
+</div>
+{{/if}} {{/if}}
