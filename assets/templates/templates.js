@@ -105,6 +105,8 @@ templates['requester_template'] = template({"1":function(container,depth0,helper
     + alias4(((helper = (helper = helpers.last_name || (depth0 != null ? depth0.last_name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"last_name","hash":{},"data":data}) : helper)))
     + "</td>\n    </tr>\n    <tr>\n        <td>IH Email:</td>\n        <td class=\"data\">"
     + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
+    + "</td>\n    </tr>\n    <tr>\n        <td>Phone Number:</td>\n        <td class=\"data\">"
+    + alias4(((helper = (helper = helpers.phone || (depth0 != null ? depth0.phone : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"phone","hash":{},"data":data}) : helper)))
     + "</td>\n    </tr>\n    <tr>\n        <td>Role:</td>\n        <td class=\"data\">"
     + alias4(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"role","hash":{},"data":data}) : helper)))
     + "</td>\n    </tr>\n    <tr>\n        <td>Repeat Guest:</td>\n        <td class=\"data\">"
@@ -149,6 +151,10 @@ templates['requester_template'] = template({"1":function(container,depth0,helper
     + alias3(alias2((depth0 != null ? depth0.start : depth0), depth0))
     + "</td>\n            </tr>\n            <tr>\n                <td>End Date:</td>\n                <td>"
     + alias3(alias2((depth0 != null ? depth0.end : depth0), depth0))
+    + "</td>\n            </tr>\n            <tr>\n              <td>Unit(s):</td>\n              <td>"
+    + alias3(alias2((depth0 != null ? depth0.units : depth0), depth0))
+    + "</td>\n            </tr>\n            <tr>\n              <td>Search Locations:</td>\n              <td>"
+    + alias3(alias2((depth0 != null ? depth0.search_location : depth0), depth0))
     + "</td>\n            </tr>\n        </table>\n        <div class='indent'>\n            <h5 class=\"expand\">+ Notes</h5>\n            <ul class='hidden'>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.notes : depth0),{"name":"each","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "            </ul>\n            <h5 class=\"expand\">+ Services</h5>\n            <ul class='hidden'>\n"
@@ -181,20 +187,45 @@ templates['requester_template'] = template({"1":function(container,depth0,helper
     + ((stack1 = (helpers.link_unit || (depth0 && depth0.link_unit) || helpers.helperMissing).call(alias1,depth0,{"name":"link_unit","hash":{},"data":data})) != null ? stack1 : "")
     + "</td>\n        </tr>\n        <tr>\n            <td>Name:</td>\n            <td>"
     + alias3(alias2((depth0 != null ? depth0.unit_name : depth0), depth0))
+    + "</td>\n        </tr>\n        <tr>\n            <td>Search Location:</td>\n            <td>"
+    + alias3(alias2((depth0 != null ? depth0.search_location : depth0), depth0))
     + "</td>\n        </tr>\n        <tr>\n            <td>IH Start Date:</td>\n            <td>"
     + alias3(alias2((depth0 != null ? depth0.start_date : depth0), depth0))
     + "</td>\n        </tr>\n        <tr>\n            <td>Booked Revenue:</td>\n            <td>$"
     + alias3(alias2((depth0 != null ? depth0.booked_revenue : depth0), depth0))
     + "</td>\n        </tr>\n        <tr>\n            <td>Paid Revenue:</td>\n            <td>$"
     + alias3(alias2((depth0 != null ? depth0.actual_revenue : depth0), depth0))
-    + "</td>\n        </tr>\n    </table>\n    <div class='indent'>\n        <h5 class=\"expand\">+ Upcoming-Reservations</h5>\n        <ul class='hidden'>\n"
-    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.upcoming_reservations : depth0),{"name":"each","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "        </ul>\n        <h5 class=\"expand\">+ Completed-Reservations</h5>\n        <ul class='hidden'>\n"
-    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.completed_reservations : depth0),{"name":"each","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "        </ul>\n        <h5 class=\"expand\">+ Future-Services</h5>\n        <ul class='hidden'>\n"
-    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.future_work_orders : depth0),{"name":"each","hash":{},"fn":container.program(17, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "        </ul>\n    </div>\n    <hr>";
+    + "</td>\n        </tr>\n    </table>\n    <div class='indent'>\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.other_owners : depth0),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.owner_owner_guest_reservations : depth0),{"name":"if","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.upcoming_reservations : depth0),{"name":"if","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.completed_reservations : depth0),{"name":"if","hash":{},"fn":container.program(23, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.future_work_orders : depth0),{"name":"if","hash":{},"fn":container.program(25, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\n    <hr>";
 },"15":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        <h5 class=\"expand\">+ Other-Owners</h5>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.other_owners : depth0),{"name":"each","hash":{},"fn":container.program(16, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"16":function(container,depth0,helpers,partials,data) {
+    var alias1=container.lambda, alias2=container.escapeExpression;
+
+  return "          <div class=\"hidden\">\n            <table>\n              <tr>\n                <td>First Name</td>\n                <td>"
+    + alias2(alias1((depth0 != null ? depth0.first_name : depth0), depth0))
+    + "</td>\n              </tr>\n              <tr>\n                <td>Last Name</td>\n                <td>"
+    + alias2(alias1((depth0 != null ? depth0.last_name : depth0), depth0))
+    + "</td>\n              </tr>\n              <tr>\n                <td>Email</td>\n                <td>"
+    + alias2(alias1((depth0 != null ? depth0.email : depth0), depth0))
+    + "</td>\n              </tr>\n              <tr>\n                <td>Phone_number</td>\n                <td>"
+    + alias2(alias1((depth0 != null ? depth0.phone_number : depth0), depth0))
+    + "</td>\n              </tr>\n            </table>        \n            <hr>\n          </div>\n";
+},"18":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        <h5 class=\"expand\">+ Owner-Reservations</h5>\n        <ul class='hidden'>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.owner_owner_guest_reservations : depth0),{"name":"each","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "        </ul>\n";
+},"19":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "            <li>\n                "
@@ -204,7 +235,25 @@ templates['requester_template'] = template({"1":function(container,depth0,helper
     + " - "
     + alias2(alias1((depth0 != null ? depth0.end_date : depth0), depth0))
     + "\n            </li>\n";
-},"17":function(container,depth0,helpers,partials,data) {
+},"21":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        <h5 class=\"expand\">+ Upcoming-Reservations</h5>\n        <ul class='hidden'>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.upcoming_reservations : depth0),{"name":"each","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "        </ul>\n";
+},"23":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        <h5 class=\"expand\">+ Completed-Reservations</h5>\n        <ul class='hidden'>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.completed_reservations : depth0),{"name":"each","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "        </ul>\n";
+},"25":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        <h5 class=\"expand\">+ Future-Services</h5>\n        <ul class='hidden'>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.future_work_orders : depth0),{"name":"each","hash":{},"fn":container.program(26, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "        </ul>\n";
+},"26":function(container,depth0,helpers,partials,data) {
     var alias1=container.lambda, alias2=container.escapeExpression;
 
   return "            <li>\n                "

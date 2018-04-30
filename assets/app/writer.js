@@ -40,6 +40,7 @@ function renderRequesterData(data) {
             'first_name': data.user.first_name,
             'last_name': data.user.last_name,
             'email': data.user.email,
+            'phone': data.user.phone_number,
             'repeat': data.repeat,
             'had_problems': data.user.had_problem,
             'caused_problems': data.user.caused_problem,
