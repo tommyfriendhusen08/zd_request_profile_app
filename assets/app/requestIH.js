@@ -1,4 +1,5 @@
 const IH_REQUESTERS_API = BASE_URL + "api/zendesk/requesters/";
+const API_KEY = "470bee42acb39b950fdea4f7258502";
 
 class IHRequest {
     constructor(ticket, groups) {
@@ -23,6 +24,7 @@ class IHRequest {
             data: requester,
             type: 'GET',
             dataType: 'json',
+            headers: { 'Authorization': API_KEY }
         };
     }
 
