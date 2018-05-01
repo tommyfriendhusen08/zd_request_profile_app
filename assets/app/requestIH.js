@@ -28,7 +28,7 @@ class IHRequest {
         };
     }
 
-    static generateRequest() {
+    static handleRequest() {
         if (this.canRequest()) {
             const requester = new IHRequest(this.requestObject.ticket, this.requestObject.groups);
             requester.buildAjaxCall();
@@ -42,11 +42,21 @@ class IHRequest {
     }
 
     static setTicket(ticket) {
-        this.requestObject.ticket = ticket;
+        this.prepareRequestObject
+        this.requestObject.ticket = ticket
+        this.handleRequest()
     }
 
     static setGroups(groups) {
-        this.requestObject.groups = groups;
+        this.prepareRequestObject
+        this.requestObject.groups = groups
+        this.handleRequest()
+    }
+
+    static prepareRequestObject() {
+        if(typeof this.requestObject == 'undefined'){
+            this.requestObject = {}
+        }
     }
 
     static clearRequest() {
