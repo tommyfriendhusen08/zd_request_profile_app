@@ -2,6 +2,10 @@ const IH_REQUESTERS_API = BASE_URL + "api/zendesk/requesters/";
 const API_KEY = "470bee42acb39b950fdea4f7258502";
 
 class IHRequest {
+    static init() {
+        this.requestObject = {};        
+    }
+
     constructor(ticket, groups) {
         this.ticket = ticket.ticket;
         this.groups = groups['currentUser.groups'].map(function(obj) { return obj.name; });
@@ -28,7 +32,7 @@ class IHRequest {
         };
     }
 
-    static generateRequest() {
+    static handleRequest() {
         if (this.canRequest()) {
             const requester = new IHRequest(this.requestObject.ticket, this.requestObject.groups);
             requester.buildAjaxCall();
@@ -42,14 +46,17 @@ class IHRequest {
     }
 
     static setTicket(ticket) {
-        this.requestObject.ticket = ticket;
+        this.requestObject.ticket = ticket
+        this.handleRequest()
     }
 
     static setGroups(groups) {
-        this.requestObject.groups = groups;
+        this.requestObject.groups = groups
+        this.handleRequest()
     }
 
     static clearRequest() {
         this.requestObject = {};
     }
+
 }
