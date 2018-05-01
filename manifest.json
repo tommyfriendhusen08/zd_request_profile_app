@@ -13,5 +13,12 @@
         }
     },
     "version": "1.0",
-    "frameworkVersion": "2.0"
+    "frameworkVersion": "2.0",
+    "parameters": [{
+        "name": "api_key",
+        "type": "text",
+        "secure": true,
+        "required": true
+    }],
+    "domainWhitelist": ["invitedhome.com", "invitedhome-dev-ben.herokuapp.com", "localhost:3000"]
 }
