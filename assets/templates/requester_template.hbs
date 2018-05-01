@@ -4,7 +4,7 @@
 <table>
     <tr>
         <td>IH Name:</td>
-        <td class="data">{{first_name}} {{last_name}}</td>
+        <td class="data">{{{link_person user}}}</td>
     </tr>
     <tr>
         <td>IH Email:</td>
@@ -31,8 +31,8 @@
         <td class="data">{{caused_problems}}</td>
     </tr>
 </table>
+<hr>
 {{#if notes}}
-<br>
 <h4 class="expand">+ User-Notes</h4>
 <div class="hidden">
 
@@ -48,7 +48,7 @@
 </div>
 {{/if}} {{#if reservations}}
 <br>
-<h4 class="expand">+ Reservations</h4>
+<h4 class="expand">+ Reservations({{{length reservations}}})</h4>
 <div class='hidden'>
     {{#each reservations}}
     <div>
@@ -60,6 +60,10 @@
             <tr>
                 <td>Status:</td>
                 <td>{{this.status}}</td>
+            </tr>
+            <tr>
+                <td>Kind:</td>
+                <td>{{this.kind}}</td>
             </tr>
             <tr>
                 <td>Stay Reason:</td>
@@ -75,14 +79,19 @@
             </tr>
             <tr>
               <td>Unit(s):</td>
-              <td>{{this.units}}</td>
+              <td>{{{link_wiki this}}}</td>
             </tr>
             <tr>
               <td>Search Locations:</td>
               <td>{{this.search_location}}</td>
             </tr>
+            <tr>
+                <td>Ready For Guest:</td>
+                <td>{{this.ready_for_guest}}</td>
+            </tr>
         </table>
         <div class='indent'>
+            {{#if notes}}
             <h5 class="expand">+ Notes</h5>
             <ul class='hidden'>
                 {{#each this.notes}}
@@ -91,6 +100,7 @@
                 </li>
                 {{/each}}
             </ul>
+            {{/if}}
             <h5 class="expand">+ Services</h5>
             <ul class='hidden'>
                 {{#each this.services}}
@@ -104,7 +114,7 @@
     <hr> {{/each}}
 </div>
 {{/if}} {{#if units}}
-<h4 class="expand">+ Units</h4>
+<h4 class="expand">+ Units({{{length units}}})</h4>
 <div class="hidden">
     {{#each units}}
     <table>
@@ -135,7 +145,7 @@
     </table>
     <div class='indent'>
         {{#if this.other_owners}}
-        <h5 class="expand">+ Other-Owners</h5>
+        <h5 class="expand">+ Other-Owners({{{length this.other_owners}}})</h5>
           {{#each this.other_owners}}
           <div class="hidden">
             <table>
@@ -161,7 +171,7 @@
           {{/each}}
         {{/if}}
         {{#if this.owner_owner_guest_reservations}}
-        <h5 class="expand">+ Owner-Reservations</h5>
+        <h5 class="expand">+ Owner-Reservations({{{length this.owner_owner_guest_reservations}}})</h5>
         <ul class='hidden'>
             {{#each this.owner_owner_guest_reservations}}
             <li>
@@ -171,7 +181,7 @@
         </ul>
         {{/if}}
         {{#if this.upcoming_reservations}}
-        <h5 class="expand">+ Upcoming-Reservations</h5>
+        <h5 class="expand">+ Upcoming-Reservations({{{length this.upcoming_reservations}}})</h5>
         <ul class='hidden'>
             {{#each this.upcoming_reservations}}
             <li>
@@ -181,7 +191,7 @@
         </ul>
         {{/if}}
         {{#if this.completed_reservations}}
-        <h5 class="expand">+ Completed-Reservations</h5>
+        <h5 class="expand">+ Completed-Reservations({{{length this.completed_reservations}}})</h5>
         <ul class='hidden'>
             {{#each this.completed_reservations}}
             <li>
@@ -191,7 +201,7 @@
         </ul>
         {{/if}}
         {{#if this.future_work_orders}}
-        <h5 class="expand">+ Future-Services</h5>
+        <h5 class="expand">+ Future-Services({{{length this.future_work_orders}}})</h5>
         <ul class='hidden'>
             {{#each this.future_work_orders}}
             <li>
