@@ -1,4 +1,4 @@
-const BASE_URL = "https://invitedhome-dev-ben.herokuapp.com/";
+const BASE_URL = "https://invitedhome.com/";
 
 requirejs([
     'app/handlebars_extensions',
